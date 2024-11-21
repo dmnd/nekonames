@@ -14,7 +14,7 @@
  */
 function candidateNames(fullName: string): Array<string> {
   const names = fullName.split(" ");
-  if (names.length === 1 || fullName.length <= 8) return [fullName];
+  if (names.length === 1 || fullName.length <= 5) return [fullName];
 
   const firstName = names.shift()!;
   const lastName = names.pop()!;
