@@ -20,21 +20,24 @@ function candidateNames(fullName: string): Array<string> {
   const lastName = names.pop()!;
   const middleNames = names;
 
-  const candidates = [
-    firstName,
-    `${firstName} ${lastName[0]}.`,
-    `${firstName} ${lastName}`,
-  ];
-  if (middleNames.length > 0) {
-    const middleInitials = middleNames.map((n) => `${n[0]}.`).join(" ");
-    candidates.push(
-      `${firstName} ${middleInitials} ${lastName[0]}.`,
-      `${firstName} ${middleInitials} ${lastName}`,
-      fullName
-    );
+  const candidates = [firstName];
+  if (lastName.length > 0) {
+    candidates.push(`${firstName} ${lastName}`);
+  }
+  if (lastName.length > 2) {
+    candidates.push(`${firstName} ${lastName[0]}.`);
   }
 
-  names.sort((a, b) => a.length - b.length);
+  if (middleNames.length > 0) {
+    const middleInitials = middleNames.map((n) => `${n[0]}.`).join(" ");
+    candidates.push(`${firstName} ${middleInitials} ${lastName}`);
+    if (lastName.length > 2) {
+      candidates.push(`${firstName} ${middleInitials} ${lastName[0]}.`);
+    }
+    candidates.push(fullName);
+  }
+
+  candidates.sort((a, b) => a.length - b.length);
   return candidates;
 }
 

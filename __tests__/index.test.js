@@ -78,4 +78,16 @@ describe("nekonames", () => {
       ).toEqual(["George Martin", "George R. R. Martin", "George Michael"]);
     });
   });
+
+  test("doesn't abbreviate 2 character surnames", () => {
+    expect(nekos(["Olivia Au", "Olivia Butler"])).toEqual([
+      "Olivia Au", // i.e. not "Olivia A."
+      "Olivia B.",
+    ]);
+
+    expect(nekos(["Olivia Estelle Au", "Olivia Erica Butler"])).toEqual([
+      "Olivia Au", // i.e. not "Olivia A."
+      "Olivia B.",
+    ]);
+  });
 });
