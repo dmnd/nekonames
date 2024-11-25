@@ -90,4 +90,10 @@ describe("nekonames", () => {
       "Olivia B.",
     ]);
   });
+
+  test("preserves keys", () => {
+    expect(nekonames(["Mikel P Manuzon"])).toEqual({
+      "Mikel P Manuzon": "Mikel",
+    });
+  });
 });

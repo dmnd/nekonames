@@ -56,9 +56,9 @@ export default function nekonames(
     }
   }
 
-  return all.reduce((result, nicks) => {
+  return all.reduce((result, nicks, i) => {
     const fullName = nicks[nicks.length - 1];
-    result[fullName] = nicks.find((n) => counts.get(n) === 1) ?? fullName;
+    result[names[i]] = nicks.find((n) => counts.get(n) === 1) ?? fullName;
     return result;
   }, {} as Record<string, string>);
 }
