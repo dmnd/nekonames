@@ -1,6 +1,6 @@
 {
   "name": "nekonames",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Generate short but unambiguous names for a group of people",
   "author": "Desmond Brand",
   "license": "MIT",
